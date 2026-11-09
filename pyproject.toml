@@ -1,0 +1,31 @@
+[project]
+name = "poker"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = "==3.14.*"
+dependencies = [
+    "fastapi>=0.121.0",
+    "pydantic>=2.12.3",
+    "pydantic-settings>=2.11.0",
+    "uvicorn[standard]>=0.38.0",
+]
+
+
+[tool.ruff]
+line-length = 140
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[dependency-groups]
+dev = [
+    "invoke>=2.2.1",
+    "ruff>=0.14.4",
+    "ty>=0.0.1a26",
+]

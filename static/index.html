@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scrum Poker</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <h1>Scrum Poker</h1>
+
+  <div id="home">
+    <button id="createBtn">Create Room</button>
+  </div>
+
+  <div id="join" style="display:none;">
+    <input id="roomId" placeholder="Enter room ID" />
+    <button id="joinBtn">Join Room</button>
+  </div>
+
+  <div id="game" style="display:none;">
+    <input id="userName" placeholder="Your name">
+    <button id="setNameBtn">Set Name</button>
+    <div id="cards">
+      <button class="card" data-value="1">1</button>
+      <button class="card" data-value="2">2</button>
+      <button class="card" data-value="3">3</button>
+      <button class="card" data-value="5">5</button>
+      <button class="card" data-value="8">8</button>
+      <button class="card" data-value="13">13</button>
+      <button class="card" data-value="21">21</button>
+      <button class="card" data-value="34">34</button>
+      <button class="card" data-value="?">?</button>
+      <button class="card" data-value="☕">☕</button>
+      <button id="reveal">Reveal</button>
+      <button id="reset">Reset</button>
+    </div>
+
+    <div id="votesDisplay">
+      <h2>Votes</h2>
+      <div id="voteArea"></div>
+      <br /><br />
+      <div><button id="resetUsers">Reset users</button></div>
+    </div>
+  </div>
+
+  <script src="/static/main.js"></script>
+</body>
+</html>
