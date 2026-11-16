@@ -1,4 +1,8 @@
+import confetti from "https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.module.mjs";
+
 document.addEventListener("DOMContentLoaded", () => {
+
+
   const createBtn = document.getElementById("createBtn");
   const joinDiv = document.getElementById("join");
   const gameDiv = document.getElementById("game");
@@ -25,6 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const data = await res.json();
     window.location.href = `/rooms/${data.room_id}`;
   };
+
+  // Check if all votes are equal
+  function allVotesEqual(votes) {
+    if (votes.length < 2) return false;
+    return votes.every(v => v.vote !== null && v.vote !== undefined && v.vote !== "" && v.vote === votes[0].vote);
+  }
 
   // Join existing room
   function joinRoom(roomId) {
@@ -143,6 +153,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
       revealBtn.style.background = "#eee";
       resetBtn.style.background = "";
+
+      // All votes equal calls for a celebration
+      if (allVotesEqual(votes)) {
+        confetti();
+      }
     } else {
       document.getElementById("cards").classList.remove("revealed")
 
